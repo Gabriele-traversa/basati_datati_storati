@@ -9,19 +9,18 @@ Sono state individuate le seguenti entità:
 - Squadra
 - Serata
 - Brano
-- Votante
 - Lega
 - bonus/malus
 
 Utenti avranno i seguenti attributi:
 - nome_utente (identificatore)
-- informazioni personali
+- mail
+<!--- informazioni personali
     - nome 
     - cognome
     - anno di nascita
     - boh palle?<!--ci va altro???-->
-    - minchia sesso  
-- coins (baudi)
+- baudi
 
 Artisti avranno i seguenti attributi:
 - nome artista (identificatore)
@@ -29,30 +28,28 @@ Artisti avranno i seguenti attributi:
 - genere musicale
 - provenienza
 - partecipazioni passate
-- voti <!---Treiv: io li metterei in esibizione (che andrebbe al posto di brano) questa è versione Pipetta0.2-->
+- punteggio <!---Treiv: io li metterei in esibizione (che andrebbe al posto di brano) questa è versione Pipetta0.2-->
 
 nota: se un artista ha feat o se è un gruppo il nome dell'artista sarà nome artista feat. x y z, o nome gruppo, poi i nomi dei singoli o informazioni personali saranno approfonditi in biografia
 
 Squadra avrà i seguenti attributi:
 - nomeSquadra(identificativo della squadre)
-- titolare (bool)
-- capitano (bool)
-- riserva (bool)
 
 Brano avrà i seguenti attributi:
-- nome brano (identificatore)
-- 
-
-<!--palle-->
+- titolo (identificatore)
+- autori
+- compositori
+- durata
+- genere
 
 Serata avrà i seguenti argomenti:
 - numero serata (prima/seconda/terza/palle) ID
 - descrizione serata(serata cover, apertura, chiusura , giorno 1, giorno2)
 
+dom numero serata(1°,5°)
 <!--nel pdf della prof parlava di serata, magari non serve vediamo--> 
 
-Votante avrà i seguenti attributi:
-grande casino, bisogna vedere come muoversi
+
 <!--fonte la repubblica: 
 La prima sera vota la sala stampa e il suo voto vale il 100 per cento. 
 Nella seconda e la terza si dividono la portata del voto le radio e il televoto, al 50 e 50 per cento,
@@ -62,15 +59,14 @@ nella sera della finale, i 29 sfidanti riproporranno le loro canzoni e saranno v
 
 lega avrà i seguenti attributi:
 - nome lega (identificatore)
-- admin?
-- gestori lega?
-- privata, segreta, pubblica (enum?)
+- privata, segreta, pubblica (enum)
 
 note:
 ci sarà una lega default a cui tutte le squadre partecipano, il campionato mondiale, ovviamente pubblico e senza amministratori o admin
 
 bonus/malus avrà i seguenti attributi:
-- nome bonus/malus(identificatore)
+- nome(identificatore)
+- descrizione
 - valore
 
 note:
@@ -84,7 +80,7 @@ Utente:
     - associazione (0,n) in quanto un utente può creare più squadre 
 - Leghe 
     - associazione (0,25) casino, se un utente non crea una squadra me lo puppa, massimo 25<!--Ogni utente può creare un numero limitato di leghe e partecipare a un massimo di venticinque leghe contemporaneamente-->
-
+    - associazione (0,25) casino, se un utente non crea una squadra me lo puppa, massimo 25 
 
 Squadra:
 - utente 
@@ -103,8 +99,6 @@ Lega:
 Artista:
 - squadra
     - associazione (0,n) non per forza un artista viene messo in una squadra, ma può stare in più squadre
-- votanti
-    - associazione (0,n) default???
 - bonus/malus
     - associazione (0,n) non per forza ne riceve, in caso ne riceve più di uno
 - brano
@@ -125,7 +119,5 @@ Brano:
     - associazione (1,1) brano univoco per ogni artista
 - Serata
     - associazione (1,5) massimo 5 sere (durata festival) minimo 1 (serata cover / muoio dopo la prima esibizione)(se uno si ritira il giorno prima viene rimosso completamente direi)
-Votante:
-- Artista: non so se ha senso, forse è meglio mettere il voto alla canzone e usarla come foreign key in artista, poi sommarla con bonus malus, boh
 
-# Direi che ho palleggiato HARD
+# Direi che ho palleggiato HARD trave gay
