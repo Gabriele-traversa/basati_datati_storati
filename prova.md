@@ -19,7 +19,7 @@ Utenti avranno i seguenti attributi:
     - nome 
     - cognome
     - anno di nascita
-    - boh palle?
+    - boh palle?<!--ci va altro???-->
     - minchia sesso  
 - coins (baudi)
 
