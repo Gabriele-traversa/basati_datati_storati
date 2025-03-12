@@ -1,5 +1,6 @@
 # Analisi Progetto BD
-modificate file se non vi piace
+guardare file raw / aprire con vscode per vedere i commenti
+<!---modificate file se non vi piace qualcosa-->
 
 Viene richiesta la creazione di una base di dati che gestisca il fantasanremo.
 Sono state individuate le seguenti entità:
