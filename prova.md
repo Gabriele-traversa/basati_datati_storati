@@ -24,3 +24,9 @@ Utenti avranno i seguenti attributi:
 
 Artisti avranno i seguenti attributi:
 
+- nome artista (identificatore)
+- biografia
+- genere musicale
+- provenienza
+- partecipazioni passate
+- voti <!---Treiv: io li metterei in esibizione (che andrebbe al posto di brano) questa è versione Pipetta0.2-->
