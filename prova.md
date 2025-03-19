@@ -15,12 +15,9 @@ Sono state individuate le seguenti entità:
 Utenti avranno i seguenti attributi:
 - nome_utente (identificatore)
 - mail
-<!--- informazioni personali
-    - nome 
-    - cognome
-    - anno di nascita
-    - boh palle?<!--ci va altro???-->
 - baudi
+
+note: sul sito ufficiale non chiede altro che la mail e il nome utente
 
 Artisti avranno i seguenti attributi:
 - nome artista (identificatore)
@@ -28,14 +25,16 @@ Artisti avranno i seguenti attributi:
 - genere musicale
 - provenienza
 - partecipazioni passate
-- punteggio <!---Treiv: io li metterei in esibizione (che andrebbe al posto di brano) questa è versione Pipetta0.2-->
+- punteggio bunus 
+- punteggio bonus extra<!---Treiv: io li metterei in esibizione (che andrebbe al posto di brano) questa è versione Pipetta0.2-->
 
 nota: se un artista ha feat o se è un gruppo il nome dell'artista sarà nome artista feat. x y z, o nome gruppo, poi i nomi dei singoli o informazioni personali saranno approfonditi in biografia
 
 Squadra avrà i seguenti attributi:
 - nomeSquadra(identificativo della squadre)
+- punteggioSquadra
 
-Brano avrà i seguenti attributi:
+BRUNO avrà i seguenti attributi:
 - titolo (identificatore)
 - autori
 - compositori
@@ -43,11 +42,11 @@ Brano avrà i seguenti attributi:
 - genere
 
 Serata avrà i seguenti argomenti:
-- numero serata (prima/seconda/terza/palle) ID
-- descrizione serata(serata cover, apertura, chiusura , giorno 1, giorno2)
+- numero serata ID
+- descrizione serata
 
-dom numero serata(1°,5°)
-<!--nel pdf della prof parlava di serata, magari non serve vediamo--> 
+dom numero serata(1°,2°,3°,4°,5°)
+dom descruzione serata(serata cover, apertura, chiusura , giorno 1, giorno2)
 
 
 <!--fonte la repubblica: 
@@ -59,65 +58,66 @@ nella sera della finale, i 29 sfidanti riproporranno le loro canzoni e saranno v
 
 lega avrà i seguenti attributi:
 - nome lega (identificatore)
-- privata, segreta, pubblica (enum)
+- tipo (enum)
+dom tipo (segreta,privata,pubblica);
 
 note:
 ci sarà una lega default a cui tutte le squadre partecipano, il campionato mondiale, ovviamente pubblico e senza amministratori o admin
 
 bonus/malus avrà i seguenti attributi:
 - nome(identificatore)
+- extra (bool)
 - descrizione
 - valore
 
 note:
-boh direi autoesplicativo🙌
+ci saranno tutti i bonus/malus, compreso il punteggio top 5 per ogni serata, extra segna se sono o non sono bonus extra
 
 
 ## Associazioni:
 
 Utente:
 - Squadra 
-    - associazione (0,n) in quanto un utente può creare più squadre 
+    - associazione (0,n) [formazione] in quanto un utente può creare più squadre 
 - Leghe 
-    - associazione (0,25) casino, se un utente non crea una squadra me lo puppa, massimo 25<!--Ogni utente può creare un numero limitato di leghe e partecipare a un massimo di venticinque leghe contemporaneamente-->
-    - associazione (0,25) casino, se un utente non crea una squadra me lo puppa, massimo 25 
+    - associazione (0,n) [partecipazione] perchè non per forza partecipo a una lega e posso partecipare a 26 leghe (si conta anche il campionato mondiale)(specificato in vincolo)si aggiunge un attributo string in cui si specifica se l'utente è base, amministratore o creatore
 
 Squadra:
 - utente 
-    - associazione (1,1) perchè ogni squadra varia da utente a utente
+    - associazione (1,1) [formazione] perchè ogni squadra varia da utente a utente
 - leghe 
-    - associazione (1,25) perchè se la squadra è creata fa parte per forza del campionato mondiale e 25 perchè è il massimo di leghe a cui può partecipare un utente
+    - associazione (1,n) [compete] perchè se la squadra è creata fa parte per forza del campionato mondiale e n (26) perchè è il massimo di leghe a cui può partecipare un utente
 - artista
-    - associazione (1,7) in una squadra ci stanno 7 artisti(?)   
+    - associazione (7,7) [unione] in una squadra ci stanno 7 artisti (obbligatoriamente)
 
 Lega:
 - utente
-    - associazione (1,n) metti che uno non ha amici, lega campionato palle mondiale
+    - associazione (1,n) [partecipazione] c'è la possibilità che un utente crei una lega e che sia da solo, n = numero squadre per campionato mondiale
 - squadra
-    - associazione (1,n) metti che gioca a tutto il festival solo una persona con una squadra, in alternativa 1002012901920192 squadre  
+    - associazione (1,n) [compete] se la lega è stata creata c'è almeno una squadra, in alternativa ci stanno n squadre  
 
 Artista:
 - squadra
-    - associazione (0,n) non per forza un artista viene messo in una squadra, ma può stare in più squadre
+    - associazione (0,n) [unione] non per forza un artista viene messo in una squadra, ma può stare in più squadre
 - bonus/malus
-    - associazione (0,n) non per forza ne riceve, in caso ne riceve più di uno
+    - associazione (1,n) [assegnazione] almeno un punteggio lo riceve (ultimo punto), in caso ne riceve più di uno
 - brano
-    - associazione (1,2) porta al più due brani al festival, uno nuovo e uno cover
+    - associazione (2,2) [porta] porta al più due brani al festival, uno nuovo e uno cover
 
 
 Bonus/malus:
 - artista:
-    - associazione (0,n) boh mi gasava (non so come dirlo a parole[ci sto uscendo di testa])
+    - associazione (0,n) [assegnazione] perchè non per forza un bonus (made in italy) sarà assegnato
 
+Brano:
+- Artista
+    - associazione (1,2) [porta] brano univoco per ogni artista
+- Serata
+    - associazione (1,3) [esecuzione] massimo 3 sere (prima, seconda o terza e ultima serata) minimo 1 
 
 Serata:
 - Brano:
-    - associazione (1,n) vengono eseguiti n brani
+    - associazione (1,n) [esecuzione] perchè non possono non essere cantati brani in una serata, massimo n 
  
-Brano:
-- Artista
-    - associazione (1,1) brano univoco per ogni artista
-- Serata
-    - associazione (1,5) massimo 5 sere (durata festival) minimo 1 (serata cover / muoio dopo la prima esibizione)(se uno si ritira il giorno prima viene rimosso completamente direi)
 
-# Direi che ho palleggiato HARD trave gay
+
