@@ -15,7 +15,6 @@ Sono state individuate le seguenti entità:
 Utenti avranno i seguenti attributi:
 - nome_utente (identificatore)
 - mail
-- baudi
 
 note: sul sito ufficiale non chiede altro che la mail e il nome utente
 
@@ -25,6 +24,7 @@ Artisti avranno i seguenti attributi:
 - genere musicale
 - provenienza
 - partecipazioni passate
+- costo
 - punteggio bunus 
 - punteggio bonus extra<!---Treiv: io li metterei in esibizione (che andrebbe al posto di brano) questa è versione Pipetta0.2-->
 
@@ -33,6 +33,7 @@ nota: se un artista ha feat o se è un gruppo il nome dell'artista sarà nome ar
 Squadra avrà i seguenti attributi:
 - nomeSquadra(identificativo della squadre)
 - punteggioSquadra
+- budget
 
 brano avrà i seguenti attributi:
 - titolo (identificatore)
@@ -99,15 +100,15 @@ Lega:
 Artista:
 - squadra
     - associazione (0,n) [unione] non per forza un artista viene messo in una squadra, ma può stare in più squadre
-- bonus/malus
-    - associazione (1,n) [assegnazione] almeno un punteggio lo riceve (ultimo punto), in caso ne riceve più di uno
+- bonus/malus e serata
+    - associazione (1,n) [assegnazione] almeno un punteggio lo riceve (ultimo punto), partecipa a più di una serata,  in caso ne riceve più di uno
 - brano
     - associazione (2,2) [porta] porta al più due brani al festival, uno nuovo e uno cover
 
 
 Bonus/malus:
-- artista:
-    - associazione (0,n) [assegnazione] perchè non per forza un bonus (made in italy) sarà assegnato
+- artista e serata
+    - associazione (0,n) [assegnazione] perchè non per forza un bonus/malus viene assegnato in una serata o ad un artista, in più può assegnato più volte
 
 Brano:
 - Artista
@@ -118,6 +119,8 @@ Brano:
 Serata:
 - Brano:
     - associazione (1,n) [esecuzione] perchè non possono non essere cantati brani in una serata, massimo n 
- 
+- artista e bonus/malus
+    - associazione (1,n) [assegnazione] almeno un artista e un bonus saranno assegnati, più di uno sicuramente   
 
 
+# discorso immo
