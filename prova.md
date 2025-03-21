@@ -34,7 +34,7 @@ Squadra avrà i seguenti attributi:
 - nomeSquadra(identificativo della squadre)
 - punteggioSquadra
 
-BRUNO avrà i seguenti attributi:
+brano avrà i seguenti attributi:
 - titolo (identificatore)
 - autori
 - compositori
@@ -45,7 +45,7 @@ Serata avrà i seguenti argomenti:
 - numero serata ID
 - descrizione serata
 
-dom numero serata(1°,2°,3°,4°,5°)
+dom numero serata(1-5)
 dom descruzione serata(serata cover, apertura, chiusura , giorno 1, giorno2)
 
 
