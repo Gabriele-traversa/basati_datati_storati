@@ -92,7 +92,7 @@ Squadra:
 - leghe 
     - associazione (1,n) [compete] perchè se la squadra è creata fa parte per forza del campionato mondiale e n (26) perchè è il massimo di leghe a cui può partecipare un utente
 - artista
-    - associazione (7,7) [unione] in una squadra ci stanno 7 artisti (obbligatoriamente)
+    - associazione (7,7) [esibizione] in una squadra ci stanno 7 artisti (obbligatoriamente)
 
 Lega:
 - utente
@@ -102,7 +102,7 @@ Lega:
 
 Artista:
 - squadra
-    - associazione (0,n) [unione] non per forza un artista viene messo in una squadra, ma può stare in più squadre
+    - associazione (0,n) [esibizione] non per forza un artista viene messo in una squadra, ma può stare in più squadre
 - bonus e serata
     - associazione (1,n) [assegnazione] almeno un punteggio lo riceve (ultimo punto), partecipa a più di una serata,  in caso ne riceve più di uno
 - brano
