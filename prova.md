@@ -4,23 +4,24 @@ guardare file raw / aprire con vscode per vedere i commenti
 
 Viene richiesta la creazione di una base di dati che gestisca il fantasanremo.
 Sono state individuate le seguenti entità:
-- Utenti
-- Artista
-- Squadra
-- Serata
-- Brano
-- Lega
-- bonus/malus
-- Bonus extra
+- UTENTE
+- ARTISTA
+- SQUADRA
+- SERATA
+- BRANO
+- LEGA
+- BONUS/MALUS
+- BONUS EXTRA
 
-Utenti avranno i seguenti attributi:
+UTENTE avrà i seguenti attributi:
 - nome_utente (identificatore)
 - mail
+- consenso (facoltativo, revocabile - condivisione dati personali con sponsor e partner)
 
-note: sul sito ufficiale non chiede altro che la mail e il nome utente
+note: sul sito ufficiale vengono richieste queste informazioni
 
-Artisti avranno i seguenti attributi:
-- nome artista (identificatore)
+ARTISTA avrà i seguenti attributi:
+- nome (identificatore)
 - biografia
 - genere musicale
 - provenienza
@@ -29,24 +30,22 @@ Artisti avranno i seguenti attributi:
 
 nota: se un artista ha feat o se è un gruppo il nome dell'artista sarà nome artista feat. x y z, o nome gruppo, poi i nomi dei singoli o informazioni personali saranno approfonditi in biografia
 
-Squadra avrà i seguenti attributi:
+SQUADRA avrà i seguenti attributi:
 - nomeSquadra(identificativo della squadre)
-- punteggioSquadra
+- punteggioSquadra <!--nomeSquadra => nome ; punteggioSquadra => punteggio ?-->
 - budget
 
-brano avrà i seguenti attributi:
+BRANO avrà i seguenti attributi:
 - titolo (identificatore)
 - autori
 - compositori
 - durata
 - genere
 
-Serata avrà i seguenti argomenti:
-- numero serata ID
-- descrizione serata
+SERATA avrà i seguenti argomenti:
+- nome (identificatore enum)
 
-dom numero serata(1-5)
-dom descruzione serata(serata cover, apertura, chiusura , giorno 1, giorno2)
+dom SERATA.nome = (prima, seconda, terza, cover, finale)
 
 
 <!--fonte la repubblica: 
@@ -56,23 +55,24 @@ nella serata dedicata alle cover i Big saranno votati attraverso la sala stampa,
 nella sera della finale, i 29 sfidanti riproporranno le loro canzoni e saranno votati da tutte le giurie: televoto (34%), sala stampa, tv e web (33%), radio (33%)
 -->
 
-lega avrà i seguenti attributi:
-- nome lega (identificatore)
+LEGA avrà i seguenti attributi:
+- nome (identificatore)
 - tipo (enum)
-dom tipo (segreta,privata,pubblica);
+
+dom tipo (segreta, privata, pubblica);
 
 note:
 ci sarà una lega default a cui tutte le squadre partecipano, il campionato mondiale, ovviamente pubblico e senza amministratori o admin
 
-bonus/malus avrà i seguenti attributi:
-- nome(identificatore)
+BONUS/MALUS avrà i seguenti attributi:
+- nome (identificatore)
 - descrizione
 - valore
 
 note:
 ci saranno tutti i bonus/malus, compreso il punteggio top 5 per ogni serata, extra segna se sono o non sono bonus extra
 
-Bonus extra avrà i seguenti attributi:
+BONUS EXTRA avrà i seguenti attributi:
 - Nome (identificatore)
 - descrizione
 - valore
@@ -121,7 +121,10 @@ Brano:
 
 Serata:
 - Brano:
-    - associazione (1,n) [esecuzione] perchè non possono non essere cantati brani in una serata, massimo n 
+    - associazione (1,n) [esecuzione] perchè non possono non essere cantati brani in una serata, massimo n
+    con seguenti attributi:
+        - ospiti: lista ospiti che partecipano
+        - orario: orario di esecuzione (per ricostruire la scaletta)
 - artista e bonus/malus
     - associazione (1,n) [assegnazione] almeno un artista e un bonus saranno assegnati, più di uno sicuramente   
 
