@@ -11,6 +11,7 @@ Sono state individuate le seguenti entità:
 - Brano
 - Lega
 - bonus/malus
+- Bonus extra
 
 Utenti avranno i seguenti attributi:
 - nome_utente (identificatore)
@@ -25,8 +26,6 @@ Artisti avranno i seguenti attributi:
 - provenienza
 - partecipazioni passate
 - costo
-- punteggio bunus 
-- punteggio bonus extra<!---Treiv: io li metterei in esibizione (che andrebbe al posto di brano) questa è versione Pipetta0.2-->
 
 nota: se un artista ha feat o se è un gruppo il nome dell'artista sarà nome artista feat. x y z, o nome gruppo, poi i nomi dei singoli o informazioni personali saranno approfonditi in biografia
 
@@ -67,13 +66,16 @@ ci sarà una lega default a cui tutte le squadre partecipano, il campionato mond
 
 bonus/malus avrà i seguenti attributi:
 - nome(identificatore)
-- extra (bool)
 - descrizione
 - valore
 
 note:
 ci saranno tutti i bonus/malus, compreso il punteggio top 5 per ogni serata, extra segna se sono o non sono bonus extra
 
+Bonus extra avrà i seguenti attributi:
+- Nome (identificatore)
+- descrizione
+- valore
 
 ## Associazioni:
 
@@ -104,7 +106,8 @@ Artista:
     - associazione (1,n) [assegnazione] almeno un punteggio lo riceve (ultimo punto), partecipa a più di una serata,  in caso ne riceve più di uno
 - brano
     - associazione (2,2) [porta] porta al più due brani al festival, uno nuovo e uno cover
-
+- bonus extra
+    - associazione () [assegnazione extra] <!-- palle sudate--->
 
 Bonus/malus:
 - artista e serata
@@ -122,5 +125,8 @@ Serata:
 - artista e bonus/malus
     - associazione (1,n) [assegnazione] almeno un artista e un bonus saranno assegnati, più di uno sicuramente   
 
+Bonus Extra:
+- Artista:
+    - associazione (0,n) [assegnazione extra] non per forza un bonus sarà assegnato, più di uno in caso   
 
 # discorso immo
