@@ -10,8 +10,8 @@ Sono state individuate le seguenti entità:
 - SERATA
 - BRANO
 - LEGA
-- BONUS/MALUS
-- BONUS EXTRA
+- BONUS
+- EXTRA
 
 UTENTE avrà i seguenti attributi:
 - nome_utente (identificatore)
@@ -64,15 +64,16 @@ dom tipo (segreta, privata, pubblica);
 note:
 ci sarà una lega default a cui tutte le squadre partecipano, il campionato mondiale, ovviamente pubblico e senza amministratori o admin
 
-BONUS/MALUS avrà i seguenti attributi:
+BONUS avrà i seguenti attributi:
 - nome (identificatore)
 - descrizione
 - valore
 
 note:
-ci saranno tutti i bonus/malus, compreso il punteggio top 5 per ogni serata, extra segna se sono o non sono bonus extra
+ci saranno tutti i bonus/malus, compreso il punteggio top 5 per ogni serata, extra segna se sono o non sono bonus extra.
+un malus altro non è che un bonus a valore negativo
 
-BONUS EXTRA avrà i seguenti attributi:
+EXTRA avrà i seguenti attributi:
 - Nome (identificatore)
 - descrizione
 - valore
@@ -102,14 +103,14 @@ Lega:
 Artista:
 - squadra
     - associazione (0,n) [unione] non per forza un artista viene messo in una squadra, ma può stare in più squadre
-- bonus/malus e serata
+- bonus e serata
     - associazione (1,n) [assegnazione] almeno un punteggio lo riceve (ultimo punto), partecipa a più di una serata,  in caso ne riceve più di uno
 - brano
     - associazione (2,2) [porta] porta al più due brani al festival, uno nuovo e uno cover
-- bonus extra
+- extra
     - associazione () [assegnazione extra] <!-- palle sudate--->
 
-Bonus/malus:
+Bonus:
 - artista e serata
     - associazione (0,n) [assegnazione] perchè non per forza un bonus/malus viene assegnato in una serata o ad un artista, in più può assegnato più volte
 
@@ -125,10 +126,10 @@ Serata:
     con seguenti attributi:
         - ospiti: lista ospiti che partecipano
         - orario: orario di esecuzione (per ricostruire la scaletta)
-- artista e bonus/malus
+- artista e bonus
     - associazione (1,n) [assegnazione] almeno un artista e un bonus saranno assegnati, più di uno sicuramente   
 
-Bonus Extra:
+Extra:
 - Artista:
     - associazione (0,n) [assegnazione extra] non per forza un bonus sarà assegnato, più di uno in caso   
 
