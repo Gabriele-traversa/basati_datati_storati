@@ -1,0 +1,9 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {section}{\numberline {1}Requisiti Disambiguati}{2}{section.1}%
+\contentsline {section}{\numberline {2}Progetto Concettuale}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.a}Schema ER}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.b}Dizionario Dati e Domini Attributi}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.c}Vincoli}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.d}Gerarchie di Generalizzazione}{4}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.e}Modifiche Apportate e Risposte a Segnalazioni}{4}{subsection.2.5}%
