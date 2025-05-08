@@ -1,3 +1,4 @@
+--la tortura del culo e delle palle
 with culo as (select c.id, avg(voto) as votoMedio, c.professore, c.attivato
               from corsi c join esami e on c.id = e.corso
               group by(c.id)
