@@ -1,0 +1,16 @@
+with VMC as (select c.id, avg(voto) as votoMedio, c.professore, c.attivato
+              from corsi c join esami e on c.id = e.corso
+              group by(c.id)
+  ),
+
+VMP as (select p.id, p.nome, p.cognome, AVG(votoMedio) as votoMP
+          from VMC c join professori p on c.professore = p.id
+          group by(p.id, p.nome, p.cognome)
+  )
+
+select p.nome, p.cognome, c.id
+from VMC c join VMP p on c.professore = p.id
+where attivato = true
+group by(p.id, p.nome, p.cognome, c.id, votomedio,votoMP)
+having votomedio > votoMP
+
